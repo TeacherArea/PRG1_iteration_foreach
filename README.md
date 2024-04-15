@@ -1,4 +1,4 @@
-# Student Register System
+# Studentregistersystem med fokus på foreach-loopen
 
 Detta är ett enkelt konsolbaserat system för att hantera en lista av studenter. Systemet låter användaren lägga till, ta bort, söka och ändra ålder på studenter. Detta projekt är utformat främst som ett pedagogiskt exempel för att hjälpa gymnasieelever att förstå och praktisera användningen av `foreach`-loopar och listhantering i C#. Det utger sig inte för att vara ett färdigt program, och har heller inte genomgått nogrann testning.
 
