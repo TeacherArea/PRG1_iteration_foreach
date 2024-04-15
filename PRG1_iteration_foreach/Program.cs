@@ -99,7 +99,11 @@ namespace PRG1_iteration_foreach
             {
                 if (item.lastName.Equals(seached, StringComparison.OrdinalIgnoreCase))
                 {
-                    // notera att item => item.lastName.Equals() är en lambdafunktion
+                    /* Notera två saker här:
+                      1) om du skriver item.lastName och sen en punkt, så ser du många möjliga metoder
+                         använda på en sträng; inklusive Equals.
+                      2) att RemoveAll med item => item.lastName.Equals() använder en lambdafunktion
+                    */
                     studentList.RemoveAll(item => item.lastName.Equals(seached, StringComparison.OrdinalIgnoreCase));
                     Console.WriteLine($"{seached} är borttagen.");
                     break;
