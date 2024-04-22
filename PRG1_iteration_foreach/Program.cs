@@ -19,13 +19,14 @@ namespace PRG1_iteration_foreach
             while (run)
             {
                 Console.WriteLine(
-                    "Välj ur menyn:\n\t" +
+                    "\nVälj ur menyn:\n\t" +
                     "1. Använd lista på tre studenter\n\t" +
                     "2. Lägg till en student\n\t" +
                     "3. Visa lista över studenter\n\t" +
                     "4. Sök efter efternamn\n\t" +
                     "5. Ändra någons ålder\n\t" +
                     "6. Ta bort en person\n\t" +
+                    "7. BubbleSort av en random array\n\t" +
                     "0. Avsluta");
                 userChoice = int.Parse(Console.ReadLine());
 
@@ -48,6 +49,8 @@ namespace PRG1_iteration_foreach
                         break;
                     case 6:
                         DeleteStudent();
+                        break;
+                    case 7: SortArray();
                         break;
                     case 0:
                         run = false;
@@ -161,6 +164,52 @@ namespace PRG1_iteration_foreach
                     Console.WriteLine($"I lista: {item.firstName} {item.lastName}");
                 }
             }
+        }
+
+        private static void SortArray()
+        {
+            Random rnd = new Random();
+            int random = 0;
+            int temp = 0;
+            bool changed = false;
+
+            int[] someInts = new int[25];
+
+            for (int i = 0; i < someInts.Length; i++)
+            {
+                random = rnd.Next(0, 100);
+                someInts[i] = random;
+            }
+
+            Console.WriteLine("Först osorterad lista:");
+            foreach (int items in someInts)
+            {
+                Console.Write(items + " ");
+            }
+
+            // BubbleSort
+            for (int i = 0; i < someInts.Length - 1; i++)
+            {
+                for (int j = 0; j < someInts.Length - 1 - i; j++)
+                {
+                    if (someInts[j] > someInts[j + 1])
+                    {
+                        temp = someInts[j];
+                        someInts[j] = someInts[j + 1];
+                        someInts[j + 1] = temp;
+                        changed = true;
+                    }
+                }
+                if (!changed)
+                    break;
+            }
+
+            Console.WriteLine("\nNu sorterad lista:");
+            foreach (int items in someInts)
+            {
+                Console.Write(items + " ");
+            }
+            
         }
     }
 }
